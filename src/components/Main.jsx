@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import "styles/main.css"
+import * as appUtil from "util/appUtil.js";
 
 
 
 const Main = (props) => {
     const {func} = props;
-
-    const authCode = "111111";
 
     const regex = /./gi;
     const maxCodeLength = 6;
@@ -16,7 +15,7 @@ const Main = (props) => {
     const [code, setCode] = useState("");
     const [hiddenCode, setHiddenCode] = useState("");
 
-    function inputChange(e) {
+    async function inputChange(e) {
         let type = e.nativeEvent.inputType;
 
         let newData = e.nativeEvent.data?.toString();
@@ -32,13 +31,25 @@ const Main = (props) => {
         setCode(value);
 
         if (value.length == maxCodeLength) {
-            if (newHiddenCode === authCode) {
+
+            let response = await authRequest(newHiddenCode);
+            if (response) {
                 func();
             } else {
                 setCode("");
                 setHiddenCode("");
             }
         }
+    }
+
+    const authRequest = async (newHiddenCode) => {
+        let data = {
+            m_pwd: newHiddenCode
+        }
+
+        let result = await appUtil.getRequest("auth", data);
+        result = result?.result;
+        return result;
     }
 
     useEffect(() => {

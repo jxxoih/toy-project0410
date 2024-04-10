@@ -14,6 +14,15 @@ create table question (
 	PRIMARY KEY(q_id)
 );
 
+create table member(
+	m_idx int(11) not null auto_increment,
+	m_id VARCHAR(50) not null COMMENT "인증아이디",
+	m_password VARCHAR(50) not null COMMENT "비밀번호",
+	primary key (m_idx)
+);
+
+insert into member (m_id, m_password) values ("4671", "021912");
+
 
 
 -- insert data
@@ -69,21 +78,14 @@ values
 ("Static 키워드란 ?", "static 키워드를 사용한 변수나 메소드는 클래스가 메모리에 올라갈 때 자동으로 생성되며 클래스 로딩이 끝나면 바로 사용할 수 있다.",1),
 ("static을 사용하는 이유", "static은 자주 변하지 않는 값이나 공통으로 사용되는 값 같은 공용자원에 대한 접근에 있어서 매번 메모리에 로딩되거나 값을 읽어들이는 것보다 일종의 ‘전역변수’와 같은 개념을 통해 접근하는 것이 비용도 줄이고 효율을 높일 수 있다.", 1),
 ("JSON 이란?", "데이터를 표시하는 표현 방법, JavaScript에서 객체를 만들 때 사용하는 표현식", 1),
-("JVM, JDK 차이", "JVM은 자바 가상머신이고, 자바코드를 컴파일 해서 나온 결과를 싱행시켜주는 가상 머신\nJDK는 자바 개발 키트이다.", 1),
+("JVM, JDK 차이", "JVM은 자바 가상머신이고, 자바코드를 컴파일 해서 나온 결과를 실행시켜주는 가상 머신\nJDK는 자바 개발 키트이다.", 1),
 ("리액트와 뷰의 차이점", "리액트는 단방향 데이터 바인딩 방식이고\n뷰는 양방향 데이터 바인딩 방식을 이용한다",3),
 ("URL URI 차이", "URL은 웹페이지를 찾는데 사용하고\n URI는 HTML, XML 및 기타파일에 사용됩니다", 3),
 ("자바스크립트 모듈시스템을 사용하는 이유", "자바스크립트 모듈시스템을 사용하는 이유", 3),
 ("rem em 차이", "rem은 가장 상단에있는 객체의 기준으로 변화하고\n em은 객체의 직계 부모의 기준으로 변화한다", 3),
 ("promise와 async 차이", "promise란\n실행은 되었지만 결과를 아직 반환하지않은 객체",3),
 ("일반 함수와 화살표 함수 차이", "대표적으로 화살표 함수는 this, argument 바인딩을 갖지 않는 차이가 있습니다", 3),
-("WAS 와 WS 차이", "WAS는 비즈니스 로직을 넣을수있음(톰캣, php, ASP등)\n WS는 비즈니스로직을 넣을수 없음(Nginx, Apache 등)", 1);
-
-
-create table member(
-	m_idx int(11) not null auto_increment,
-	m_id VARCHAR(50) not null COMMENT "인증아이디",
-	m_password VARCHAR(50) not null COMMENT "비밀번호",
-	primary key (m_idx)
-);
-
-insert into member (m_id, m_password) values ("4671", "021912");
+("WAS 와 WS 차이", "WAS는 비즈니스 로직을 넣을수있음(톰캣, php, ASP등)\n WS는 비즈니스로직을 넣을수 없음(Nginx, Apache 등)", 1),
+("스트레스를 해소하는 방법", "스트레스가 생기면 잠깐 밖에나가 마음을 추스리고 다시 일을 합니다. 그리고 운동을 좋아하기 때문에 퇴근후 운동을 하면서 스트레스를 해소합니다.",99),
+("코드리뷰하는 방법", "작업이 끝나고 팀원이 코드리뷰를 할때까지 기다리기 보다\n
+우선 코드가 겹치지 않는 선에서 작업 단위로 브랜치를 만들어서 작업하고, 코드리뷰가 완료되면 merge합니다", 99);

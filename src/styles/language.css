@@ -1,0 +1,44 @@
+.languageContainer {
+    background-color: rgb(60, 60, 60);
+
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+}
+
+.languageArea {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.languageWrap {
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow:auto;
+    text-align: center;
+    display: table;
+}
+
+.languageItem {
+    cursor: pointer;
+
+
+    padding: 20px 0;
+    margin: 15px;
+    border-radius: 50px;
+    background-color: rgb(110, 110, 110);
+}
+
+.selectBtn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.selectBtn > button {
+    width: 100%;
+    height: 100%;
+}

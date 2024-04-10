@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "styles/question.css";
 import SelectQuestion from "components/SelectQuestion";
-import InterviewQuestions from "./InterviewQuestions";
-import SkillInterview from "./SkillInterview";
+import InterviewQuestions from "components/InterviewQuestions";
+import SkillInterview from "components/SkillInterview";
 
 
 const Question = () => {
@@ -24,6 +24,7 @@ const Question = () => {
                     <InterviewQuestions
                         questionTypeHandler={questionTypeHandler}
                         titleText={"인성면접"}
+                        languageType={99}
                     />
                 ),
                 questionType < 0 && (

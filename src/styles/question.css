@@ -1,7 +1,7 @@
 
 .questionContainer {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - var(--container-height-m));
 
     background-color: rgb(60, 60, 60);
 
@@ -28,7 +28,7 @@
 .interviewContainer {
     width: 100vw;
     background-color: var(--interview-bg-color);
-    height: 100vh;
+    height: calc(100vh - var(--container-height-m));
 
 }
 
@@ -41,17 +41,18 @@
     justify-content: center;
     align-items: center;
 
-    grid-template-rows: 0.5fr 100px 100px;
+    grid-template-rows: 0.7fr 100px 200px;
 
 }
 
 .pageControllArea {
-
-    display: grid;
-    justify-content: center;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    position: fixed;
+    bottom: 30px;
 }
 .pageControllArea > div {
     display: flex;
@@ -65,6 +66,27 @@
     border: none;
     background-color: #d5d5d5;
     border-radius: 50px;
+}
+
+
+.interviewWrap {
+    padding: 0 30px;
+}
+.interviewWrap > pre {
+    height: 200px;
+    overflow: auto;
+
+    white-space: break-spaces;
+}
+
+.interviewWrap > .interviewQuestion {
+    height: 100px;
+
+}
+
+.interviewWrap > div {
+    width: 100%;
+    text-align: center;
 }
 
 /* area > wrap > box */

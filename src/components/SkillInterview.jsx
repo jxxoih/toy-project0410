@@ -1,30 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import InterviewQuestions from "./InterviewQuestions";
-import SelectLanguage from "./SelectLanguage";
+import InterviewQuestions from "components/InterviewQuestions";
+import SelectLanguage from "components/SelectLanguage";
+import * as appUtil from "util/appUtil.js";
 
-const languageDummyData = [
-    {
-        l_id : 1,
-        l_text: "기술전체",
-        l_type: 0
-    },
-    {
-        l_id : 2,
-        l_text: "JAVA / Spring",
-        l_type: 1
-    },
-    {
-        l_id : 3,
-        l_text: "PHP" ,
-        l_type: 2
-    },
-    {
-        l_id : 4,
-        l_text: "React / Front",
-        l_type: 3
-    }
-];
 
 const SkillInterview = (props) => {
     const { questionTypeHandler } = props;
@@ -34,12 +13,27 @@ const SkillInterview = (props) => {
     const [languageText, setLanguageText] = useState(null);
 
     const languageTypeHandler = (arg) => {
-        setLanguageType(arg);
-        setLanguageText(languageData[arg]?.l_text);
+
+        if(arg >= 0) {
+            setLanguageType(languageData[arg]?.l_type);
+            setLanguageText(languageData[arg]?.l_text);
+        } else {
+            resetHandler();
+        }
+    }
+
+    const resetHandler = () => {
+        setLanguageType(-1);
+        setLanguageText(null);
+    }
+
+    const getLanguage = async () => {
+        let result = await appUtil.getRequest("language", null);
+        setLanguageData(result);
     }
 
     useEffect(() => {
-        setLanguageData(languageDummyData)
+        getLanguage();
     }, []);
 
     return (
@@ -57,6 +51,7 @@ const SkillInterview = (props) => {
                         <InterviewQuestions
                             questionTypeHandler={languageTypeHandler}
                             titleText={languageText}
+                            languageType={languageType}
                         />
                     )
                 ]

@@ -19,6 +19,7 @@ const SelectLanguage = (props) => {
                         !!languageData &&
                         languageData.map((item, idx) => (
                             <div
+                                key={item.l_id}
                                 className="languageItem"
                                 onClick={() => languageTypeHandler(idx)}
                             >

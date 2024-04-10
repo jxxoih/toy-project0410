@@ -1,25 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
-
-
-const dummyData = [
-    {
-        i_question: "안녕",
-        i_answer: "답변입니다."
-    },
-    {
-        i_question: "안녕2222",
-        i_answer: "답변입니다22222."
-    },
-    {
-        i_question: "안녕3333",
-        i_answer: "답변입니다333."
-    }
-]
+import * as appUtil from "util/appUtil.js";
 
 
 const InterviewQuestions = (props) => {
-    const { questionTypeHandler, titleText } = props;
+    const { questionTypeHandler, titleText, languageType } = props;
 
     const [currentIdx, setCurrentIdx] = useState(0);
     const [interviewData, setInterviewData] = useState([]);
@@ -29,10 +14,19 @@ const InterviewQuestions = (props) => {
     }
 
     // 타입에 맞는 데이터 호출하는 함수 필요함
+    const getInterviewData = async () => {
+        let data = {
+            q_type: languageType
+        }
+
+        let result = await appUtil.getRequest("interview", data);
+
+        setInterviewData(result);
+    }
 
     useEffect(() => {
         setCurrentIdx(0);
-        setInterviewData(dummyData);
+        getInterviewData();
     }, [])
 
     return (
@@ -43,21 +37,25 @@ const InterviewQuestions = (props) => {
                         {titleText}
                     </h3>
                 </div>
-                <div>
-                    Q.
+                <div className="interviewWrap">
+                    <div>Q.</div>
                     <br />
                     <br />
-                    {
-                        interviewData[currentIdx]?.i_question
-                    }
+                    <pre className="interviewQuestion">
+                        {
+                            interviewData[currentIdx]?.i_question
+                        }
+                    </pre>
                 </div>
-                <div>
-                    A.
+                <div className="interviewWrap">
+                    <div>A.</div>
                     <br />
                     <br />
-                    {
-                        interviewData[currentIdx]?.i_answer
-                    }
+                    <pre>
+                        {
+                            interviewData[currentIdx]?.i_answer
+                        }
+                    </pre>
                 </div>
             </div>
 

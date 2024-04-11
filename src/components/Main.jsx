@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "styles/main.css"
 import * as appUtil from "util/appUtil.js";
+import {M_PWD} from "config.js";
 
 
 
@@ -47,8 +48,14 @@ const Main = (props) => {
             m_pwd: newHiddenCode
         }
 
-        let result = await appUtil.getRequest("auth", data);
-        result = result?.result;
+        // let result = await appUtil.getRequest("auth", data);
+        // result = result?.result;
+
+        let result = false;
+        if(data.m_pwd == M_PWD) {
+            result = true;
+        }
+        
         return result;
     }
 

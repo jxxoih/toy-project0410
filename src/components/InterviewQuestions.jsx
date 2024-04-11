@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import * as appUtil from "util/appUtil.js";
 
+import {questionsDummyData} from "data.js";
+
 
 const InterviewQuestions = (props) => {
     const { questionTypeHandler, titleText, languageType } = props;
@@ -19,7 +21,8 @@ const InterviewQuestions = (props) => {
             q_type: languageType
         }
 
-        let result = await appUtil.getRequest("interview", data);
+        // let result = await appUtil.getRequest("interview", data);
+        let result = questionsDummyData;
 
         setInterviewData(result);
     }

@@ -1,11 +1,11 @@
-const languageData = [
+const languageDummyData = [
     { l_id: 2, l_text: '기술전체', l_type: 0 }
     , { l_id: 3, l_text: 'JAVA / Spring', l_type: 1 }
     , { l_id: 4, l_text: 'PHP', l_type: 2 }
     , { l_id: 5, l_text: 'React / Front', l_type: 3 }
 ];
 
-const questionsData = [
+const questionsDummyData = [
     { q_id: 1, i_question: '리액트 라이프사이클', i_answer: '최초 컴포넌트 객체가 생성될때, 초기에 화면을 그려줄 때, 업데이트가 될 때, 컴포넌트가 소멸될 때 호출', q_type: 3, use_state: 1 }
     , { q_id: 2, i_question: 'state를 직접 변경하지 않고 setState를 사용하는 이유', i_answer: 'state는 불변성을 유지해야되기 때문\nstate를 직접 수정하게 되면 리액트가 render함수를 호출하지 않음', q_type: 3, use_state: 1 }
     , { q_id: 3, i_question: 'App.js처럼 상위 컴포는터에서 하위컴포넌트에 데이터 전달 방법', i_answer: '상태관리 라이브러리를 사용하거나, 상위 컴퍼넌트에 함수를 만들어 함수를 통해 데이터를 변경하면 하위 컴퍼넌트의 데이터들이 변경됨', q_type: 3, use_state: 1 }
@@ -16,7 +16,7 @@ const questionsData = [
     , { q_id: 8, i_question: 'Public, private, protected의 차이', i_answer: 'Public : 어디서나, Private : 같은 클래스에서, Protected : 같은 클래스 및 자식 클래스에서 접근 가능', q_type: 2, use_state: 1 }
     , { q_id: 9, i_question: 'static은 무엇인가?', i_answer: '클래스 내에서 정적 함수 앞에 static 키워드를 붙여서 선언하면 클래스의 인스턴스 없이 바로 호출할 수 있음.', q_type: 2, use_state: 1 }
     , { q_id: 10, i_question: 'Php에서 참조란 ?', i_answer: '메모리 주소 공간을 같이 사용.\n &키워드를 사용해 주소를 표시', q_type: 2, use_state: 1 }
-    , { q_id: 11, i_question: '세션과 쿠키, 캐시 차이', i_answer: '- 쿠키: 로컬에 필요한 데이터를 저장하고 서버의 처리가 필요하지 않아 속도가 빠름\n- 세…일인 만큼 다시 사용할때 재 다운로드받지 않고 저장소(캐시)에 저장하고 다시 재사용한다.', q_type: 2, use_state: 1 }
+    , { q_id: 11, i_question: '- 쿠키: 로컬에 필요한 데이터를 저장하고 서버의 처리가 필요하지 않아 속도가 빠름\n- 세션: 서버에 저장하며, 로컬에 SESSION ID를 쿠키로 저장하고 서버는 클라이언트마다의 세션을 갖기에 부하가 생김\n- 캐시: 자주 사용하는 데이터나 값을 미리 복사해 놓는 임시 저장소, 메모리상에 저장\n보통은 변화가 없는 static 파일, 이미지 또는 사진 파일(jpg, png 등등), CSS, JS 등 정적이고, 용량이 큰 파일들이다. 용량이 큰 파일인 만큼 다시 사용할때 재 다운로드받지 않고 저장소(캐시)에 저장하고 다시 재사용한다.', q_type: 2, use_state: 1 }
     , { q_id: 12, i_question: 'include(), require(), include_once(), require_one() 차이', i_answer: 'include는 호출될 때 파일을 포함시키며 파일이 없더라도 코드가 실행됨\n require…드가 실행되지 않음\n once가 추가되면 해당 파일을 오직 한번만 추가한다는 옵션을 의미', q_type: 2, use_state: 1 }
     , { q_id: 13, i_question: '연산자 == , === 차이', i_answer: '== 는 값이 같으면 참.\n=== 는 지금 값의 데이터 타입이 같아야 참', q_type: 2, use_state: 1 }
     , { q_id: 14, i_question: '객체와 배열의 차이', i_answer: '배열은 키, 인덱스로 접근하고 비슷한 데이터가 담김\n객체는 프로퍼티로 접근하고 관련된 정보를 저장함', q_type: 2, use_state: 1 }
@@ -56,4 +56,4 @@ const questionsData = [
     , { q_id: 48, i_question: 'WAS 와 WS 차이', i_answer: 'WAS는 비즈니스 로직을 넣을수있음(톰캣, php, ASP등)\n WS는 비즈니스로직을 넣을수 없음(Nginx, Apache 등)', q_type: 1, use_state: 1 }
 ];
 
-export { languageData, questionsData };
+export { languageDummyData, questionsDummyData };

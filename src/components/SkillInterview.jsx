@@ -4,6 +4,8 @@ import InterviewQuestions from "components/InterviewQuestions";
 import SelectLanguage from "components/SelectLanguage";
 import * as appUtil from "util/appUtil.js";
 
+import {languageDummyData} from "data.js";
+
 
 const SkillInterview = (props) => {
     const { questionTypeHandler } = props;
@@ -28,7 +30,8 @@ const SkillInterview = (props) => {
     }
 
     const getLanguage = async () => {
-        let result = await appUtil.getRequest("language", null);
+        // let result = await appUtil.getRequest("language", null);
+        let result = languageDummyData;
         setLanguageData(result);
     }
 

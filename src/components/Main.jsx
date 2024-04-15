@@ -48,10 +48,9 @@ const Main = (props) => {
             m_pwd: newHiddenCode
         }
 
-        // let result = await appUtil.getRequest("auth", data);
-        // result = result?.result;
+        let result = await appUtil.getRequest("auth", data);
+        result = result?.result;
 
-        let result = false;
         if(data.m_pwd == M_PWD) {
             result = true;
         }

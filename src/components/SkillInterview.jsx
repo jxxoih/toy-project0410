@@ -30,8 +30,7 @@ const SkillInterview = (props) => {
     }
 
     const getLanguage = async () => {
-        // let result = await appUtil.getRequest("language", null);
-        let result = languageDummyData;
+        let result = await appUtil.getRequest("language", null);
         setLanguageData(result);
     }
 

@@ -21,8 +21,7 @@ const InterviewQuestions = (props) => {
             q_type: languageType
         }
 
-        // let result = await appUtil.getRequest("interview", data);
-        let result = questionsDummyData;
+        let result = await appUtil.getRequest("interview", data);
 
         setInterviewData(result);
     }
